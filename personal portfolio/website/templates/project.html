@@ -1,0 +1,193 @@
+{% block content %}
+<html>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <head>
+       <!-- SKULPT -->
+      <script src="https://code.jquery.com/jquery-1.9.1.min.js"   integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>
+      <script src="https://rawcdn.githack.com/skulpt/skulpt-dist/30ef3d92aa4d45f22286effe445e4448a2d057d9/skulpt.js" type="text/javascript" module></script>  
+      <script src="https://rawcdn.githack.com/skulpt/skulpt-dist/30ef3d92aa4d45f22286effe445e4448a2d057d9/skulpt-stdlib.js" type="text/javascript" module></script>
+   </head>
+   <body>
+    <script src="static/internal.js"></script>
+    <div style="color: white;display:flex;"><button class="button-79" role="button" id="btn-runcode" onclick="runit()">Run</button>
+        <div style="color: white;display:flex;margin-left: 20px;"><button class="button-79" style="background: red;" role="button" id="btn-runcode" onclick="openWindow('/')">Home</button></div>
+        <div style="color:white;margin-left:75vh;margin-top:40px;font-size: large;">Turtle Output:</div>
+    </div>
+    <br/>
+    <div class="wrap">
+    <textarea class="selection" id="yourcode" cols="80" rows="30">
+#Python version 3.2.0
+#Powered with Skulpt!
+#Welcome, {{user.username}}!
+#Please always leave any turtle code in this text area.
+#You can write non-turtle script too, your output will be displayed below.
+#Non-turtle scripts please write always at the beginning of the text area.
+
+#Simple Example:
+
+class Main:
+    def greet():
+        greeting = ["Hello World!","Python is awesome!!"]
+        for i in range(1):
+            print(greeting[0])
+            print(greeting[1])
+    greet()
+main = Main()
+
+from turtle import *
+
+speed(20)
+colors = ['orange', 'red', 'pink', 'yellow', 'blue', 'green']
+for x in range(75):
+    pencolor(colors[x % 6])
+    width(x / 5 + 1)
+    forward(x)
+    left(20)
+    
+turtle.done()
+
+
+      </textarea>
+      <!-- If you want turtle graphics include a canvas -->
+      <br/>
+      <div id="mycanvas"></div> <!-- graphical output -->
+    </div>
+    <div class="outputBox">
+        <p style="color: white;font-size: large;">Output:</p>
+        <div class="container">
+            <p id="py-version">Python 3.2.0 (default)</p>
+            <pre id="output"></pre> <!-- Implement prints.. -->
+    </div>
+    </div>
+
+   </body>
+   <style>
+
+        ::selection {
+            background: rgb(158, 156, 253);
+            color: black;
+        }
+       body {
+           background: #13182a;
+       }
+       #mycanvas {
+           border: 2px solid darkblue;
+           background: #03132b;
+           border-radius: 10px;
+           box-shadow: 5px 10px 10px black;
+           transition: 0.5s;
+           margin-left: 110px;
+       }
+       #mycanvas:hover {
+           border: 2px solid blue;
+           background: #051937;
+           border-radius: 10px;
+           box-shadow: 5px 10px 10px black;
+           transition: 0.5s;
+       }
+       .wrap {
+           display: flex;
+       }
+       .container {
+           display: inline-block;
+           background: #03132b;
+           color:snow;
+           padding: 10px;
+           padding-right: 63vh;
+           padding-bottom: 10vh;
+           width: auto;
+           height: auto;
+           margin-top: 20px;
+           border: 2px solid darkblue;
+           box-shadow: 5px 10px 10px black;
+           border-radius: 6px;
+           transition: 0.5s;
+       }
+
+       .container:hover {
+        border: 2px solid blue;
+        background: #051937;
+        transition: 0.5s;
+       }
+
+       #py-version {
+           color: yellow;
+           font-size: 13px;
+       }
+
+       #yourcode {
+            border: 2px solid darkblue;
+            background: #051937;
+            box-shadow: 5px 10px 10px black;
+            color: snow;
+            transition: 0.4s;
+            border-radius: 10px;
+       }
+       #yourcode:hover {
+           border: 2px solid blue;
+           transition: 0.4s;
+       }
+
+
+    .button-79 {
+    backface-visibility: hidden;
+    background: #332cf2;
+    border: 0;
+    border-radius: .375rem;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Circular,Helvetica,sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    padding: 1rem 1.25rem;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transform: translateZ(0) scale(1);
+    transition: transform .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    }
+
+
+    .button-79:not(:disabled):hover {
+    transform: scale(1.05);
+    }
+
+    .button-79:not(:disabled):hover:active {
+    transform: scale(1.05) translateY(.125rem);
+    }
+
+    .button-79:focus {
+    outline: 0 solid transparent;
+    }
+
+    .button-79:focus:before {
+    border-width: .125rem;
+    content: "";
+    left: calc(-1*.375rem);
+    pointer-events: none;
+    position: absolute;
+    top: calc(-1*.375rem);
+    transition: border-radius;
+    user-select: none;
+    }
+
+    .button-79:focus:not(:focus-visible) {
+    outline: 0 solid transparent;
+    }
+
+    .button-79:not(:disabled):active {
+    transform: translateY(.125rem);
+}
+
+       
+   </style>
+</html>
+{% endblock %}

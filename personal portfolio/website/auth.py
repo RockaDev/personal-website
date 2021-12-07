@@ -42,6 +42,7 @@ def signup():
         first_name = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        username = request.form.get('username')
 
         user = User.query.filter_by(email=email).first()
         if user:
@@ -50,12 +51,14 @@ def signup():
             flash('Email too short!', category='error')
         elif len(first_name) < 2:
             flash('Firstname too short!', category='error')
+        elif len(username) < 3:
+            flash('Username too short!', category='error')
         elif password1 != password2:
             flash("Passwords don't match!", category='error')
         elif len(password1) < 7:
             flash('Password is too weak!', category='error')
         else:
-            new_user = User(email=email,first_name=first_name,password=generate_password_hash(password1, method='sha256'))
+            new_user = User(email=email,first_name=first_name,username=username,password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user,remember=True)
@@ -70,6 +73,12 @@ def signup():
 @login_required
 def about_me():
     return render_template("about.html", user=current_user)
+
+
+@auth.route("/project")
+@login_required
+def portfolio():
+    return render_template("project.html", user=current_user)
 
 
 

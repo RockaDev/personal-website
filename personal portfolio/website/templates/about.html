@@ -47,15 +47,20 @@
   <h1 class="aboutme" align="center">ABOUT ME</h1>
   <br/>
   <div class="button" align="center">
-    <input type="submit" name="" value="CONTINUE" onclick="accessInfo()" />
+    <input type="submit" name="" value="VIEWS PROJECTS" onclick="accessInfo();openWindow('project');" />
   </div>
 </nav>
 <br/>
 <p id="demo"></p>
+<br/>
+<div class="IMAGE-SRC">
+  <img src="https://cdn0.scrvt.com/abe27e3c968b630873d0fca61dca543f/9cd4fd151e42eddb/97afa4724b2d/v/68f10ba75f79/40-21-DX-547-76_POCRapidAntigenTest_KeyVisual_19020x1080.jpg" align="center" id="image" name="image" alt="test">
+  <p id="ALIGNED-TEXT">AXE - THE BEST PAGE REVIEWER IN THE UNIVERSE HISTORY OF HISTORICAL DIMENSION SCOPE. <br/>10 TIMES BETTER THAN SAGACII GUCINNO.</p>
+</div>
 <nav class="below-navbar">
   </nav>
 <nav class="last-below-navbar">
-  <p class="last-below-navbar-text">Designed and developed by Rocka</p>
+  <p class="last-below-navbar-text">Designed and developed by RockaDev</p>
   <p class="end-copyright">© 2021, Personal Portfolio</p>
 </nav>
   <style>
@@ -69,6 +74,23 @@
       background: white;
       background-size: cover;
       overflow: visible;
+    }
+
+    #image {
+      width: 100%;
+      height: 120vh;
+      align-items: center;
+      text-align: center;
+      align-content: center;
+    }
+
+    #ALIGNED-TEXT {
+      font-size: x-large;
+      position: flex;
+      color: red;
+      margin: 0 auto;
+      margin: 5vh;
+      margin-top: -40vmax;
     }
 
     .last-below-navbar-text {

@@ -1,11 +1,19 @@
 {% extends "base.html" %} {% block title  %}Signup{% endblock %}
 
 {% block content %}
+<html>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</html>
 <form method="POST">
     <h3 align="center">Sign up</h3>
     <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
     </div>
     <div class="form-group">
         <label for="firstName">First Name</label>
